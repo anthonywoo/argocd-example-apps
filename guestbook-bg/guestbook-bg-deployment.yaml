@@ -18,3 +18,9 @@ spec:
         name: guestbook-bg
         ports:
         - containerPort: 80
+  strategy:
+    blueGreen:
+      previewService: guestbook-bg-prev
+      previewReplicaCount: 1
+      autoPromotionSeconds: 120
+      scaleDownDelaySeconds: 300
