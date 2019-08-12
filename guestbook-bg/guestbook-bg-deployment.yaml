@@ -20,6 +20,7 @@ spec:
         - containerPort: 80
   strategy:
     blueGreen:
+      activeService: guestbook-bg-act
       previewService: guestbook-bg-prev
       previewReplicaCount: 1
       autoPromotionSeconds: 120
