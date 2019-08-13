@@ -8,16 +8,6 @@ spec:
   selector:
     matchLabels:
       app: guestbook-bg
-  template:
-    metadata:
-      labels:
-        app: guestbook-bg
-    spec:
-      containers:
-      - image: gcr.io/heptio-images/ks-guestbook-demo:0.2
-        name: guestbook-bg
-        ports:
-        - containerPort: 80
   strategy:
     blueGreen:
       activeService: guestbook-bg
@@ -25,3 +15,13 @@ spec:
       previewReplicaCount: 1
       autoPromotionSeconds: 120
       scaleDownDelaySeconds: 300
+  template:
+    metadata:
+      labels:
+        app: guestbook-bg
+    spec:
+      containers:
+      - image: gcr.io/heptio-images/ks-guestbook-demo:0.1
+        name: guestbook-bg
+        ports:
+        - containerPort: 80
