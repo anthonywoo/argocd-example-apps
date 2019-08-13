@@ -3,7 +3,7 @@ kind: Rollout
 metadata:
   name: guestbook-bg
 spec:
-  replicas: 2
+  replicas: 3
   revisionHistoryLimit: 3
   selector:
     matchLabels:
@@ -13,7 +13,7 @@ spec:
       activeService: guestbook-bg
       previewService: guestbook-bg-prev
       previewReplicaCount: 1
-      autoPromotionSeconds: 120
+      autoPromotionSeconds: 180
       scaleDownDelaySeconds: 300
   template:
     metadata:
@@ -21,7 +21,7 @@ spec:
         app: guestbook-bg
     spec:
       containers:
-      - image: gcr.io/heptio-images/ks-guestbook-demo:0.2
+      - image: gcr.io/heptio-images/ks-guestbook-demo:0.1
         name: guestbook-bg
         ports:
         - containerPort: 80
