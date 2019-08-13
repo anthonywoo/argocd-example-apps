@@ -21,7 +21,7 @@ spec:
         app: guestbook-bg
     spec:
       containers:
-      - image: gcr.io/heptio-images/ks-guestbook-demo:0.1
+      - image: gcr.io/heptio-images/ks-guestbook-demo:0.2
         name: guestbook-bg
         ports:
         - containerPort: 80
