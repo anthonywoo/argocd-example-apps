@@ -12,8 +12,12 @@ spec:
         template: build
       - name: test
         template: test
-    - - name: deploy
-        template: deploy
+    - - name: deploy-canary
+        template: deploy-canary
+    - - name: bake
+        template: bake
+    - - name: deploy-all
+        template: deploy-all
   - name: build
     container:
       image: alpine:3.7
@@ -24,8 +28,15 @@ spec:
       image: alpine:3.7
       command: [sh, -c]
       args: ['echo "test step";']
-  - name: deploy
+  - name: deploy-canary
     container:
       image: alpine:3.7
       command: [sh, -c]
-      args: ['echo "deploy step";']
+      args: ['echo "deploy canary step";']
+  - name: bake
+    suspend: {}
+  - name: deploy-all
+    container:
+      image: alpine:3.7
+      command: [sh, -c]
+      args: ['echo "deploy rest of pods step";']
