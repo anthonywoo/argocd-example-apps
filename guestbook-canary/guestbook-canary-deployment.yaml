@@ -24,7 +24,7 @@ spec:
         app: guestbook-canary
     spec:
       containers:
-      - image: gcr.io/heptio-images/ks-guestbook-demo:0.2
+      - image: gcr.io/heptio-images/ks-guestbook-demo:0.1
         name: guestbook-canary
         ports:
         - containerPort: 80
