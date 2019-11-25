@@ -14,8 +14,6 @@ spec:
         template: test
     - - name: deploy-canary
         template: deploy-canary
-    - - name: bake
-        template: bake
       - name: canary-analysis
         template: canary-analysis
     - - name: deploy-all
@@ -35,8 +33,6 @@ spec:
       image: alpine:3.7
       command: [sh, -c]
       args: ['echo "deploy canary step";']
-  - name: bake
-    suspend: {}
   - name: canary-analysis
     container:
       image: alpine:3.7
